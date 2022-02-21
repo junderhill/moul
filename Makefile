@@ -1,5 +1,5 @@
 darwin: ## Build for macOS.
-	env GOOS=darwin GOARCH=amd64 go build -ldflags "-s -w" -o bin/moul_darwin_amd64
+	env GOOS=darwin GOARCH=arm64 go build -ldflags "-s -w" -o bin/moul_darwin_arm64
 
 linux: ## Build for Linux.
 	env GOOS=linux GOARCH=amd64 go build -ldflags "-s -w" -o bin/moul_linux_amd64

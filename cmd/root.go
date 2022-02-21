@@ -216,7 +216,14 @@ func previewFunc(cmd *cobra.Command, args []string) {
 	color.Green("http://localhost:5000/")
 	color.HiBlack("\n`Ctrl + C` to quit!")
 	info("Done ...")
-	http.ListenAndServe(":5000", nil)
+	serverErr := http.ListenAndServe("127.0.0.1:5000", nil) // set listen port
+
+	if serverErr != nil {
+		log.Println("Error starting server")
+
+	} else {
+		fmt.Println("Started server on - 127.0.0.1:5000")
+	}
 }
 
 // Execute func
