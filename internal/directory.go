@@ -98,7 +98,7 @@ func GetPhotoProd(dir, slugName string) string {
 		for _, photo := range sectionPhotos {
 			fn := filepath.Base(photo)
 			name := GetFileName(fn, slugName)
-			fnName := strings.Replace(strings.ToLower(strings.TrimSuffix(fn, filepath.Ext(fn))), " ", "-", -1)
+			fnName := strings.TrimPrefix(strings.Replace(strings.ToLower(strings.TrimSuffix(fn, filepath.Ext(fn))), " ", "-", -1), "_")
 			pid := config.GetString(slug.Make(fn) + ".id")
 			widthHd, heightHd := GetPhotoDimension(
 				filepath.Join(".moul", "photos", pid, slug.Make(dir), "2048", name+".jpg"),
